@@ -6,7 +6,7 @@ include('../includes/config.php');
 // Check if user is logged in, else redirect to login
 
 // Fetch session data
-$admin_username = $_SESSION['alogin'];
+$admin_username = $_SESSION['login'];
 function generateRandomPassword($length = 10)
 {
     $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
@@ -166,6 +166,64 @@ $admins = $query->fetchAll(PDO::FETCH_ASSOC);
             left: auto;
         }
     </style>
+    <style>
+        /* Sidebar Styling */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .sidenav a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            background-color: #575757;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Sidebar Button */
+        .sidebar-btn {
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: black;
+            padding: 10px;
+        }
+
+        .sidebar-btn:focus {
+            outline: none;
+        }
+
+        /* Dropdown */
+        .dropdown-menu {
+            min-width: 150px;
+            right: 0;
+            left: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -275,18 +333,6 @@ $admins = $query->fetchAll(PDO::FETCH_ASSOC);
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
-<<<<<<< HEAD
-=======
-        document.addEventListener("click", function(event) {
-        var sidebar = document.getElementById("mySidenav");
-        var sidebarButton = document.querySelector("span[onclick='openNav()']");
-
-        // Check if the click is outside the sidebar and not on the open button
-        if (!sidebar.contains(event.target) && !sidebarButton.contains(event.target)) {
-            closeNav();
-        }
-    });
->>>>>>> 8244d27 (Download PDF)
     </script>
 </body>
 

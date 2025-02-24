@@ -80,7 +80,7 @@ $result = $conn->query($query);
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         th { background-color:rgb(36, 25, 25); }
     </style>
-</head>
+</head> 
 <body>
 <header>
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -96,7 +96,7 @@ $result = $conn->query($query);
         </a>
         </div>
         
-        <h1>ULSC - Add Participants</h1>
+        <h1>ULSC - View Events</h1>
 
         <div class="logo">
             <img src="../assets/images/ulsc.png" alt="ULSC Logo">

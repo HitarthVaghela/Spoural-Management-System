@@ -161,7 +161,7 @@ $total_participants = $query->fetch(PDO::FETCH_ASSOC)['total_participants'] ?? 0
         </a>
         </div>
         
-        <h1>ULSC - Add Participants</h1>
+        <h1>ULSC - Dashboard</h1>
 
         <div class="logo">
             <img src="../assets/images/ulsc.png" alt="ULSC Logo">

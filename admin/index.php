@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
     $user = $query->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
-        $_SESSION['alogin'] = $user['username']; // Store username dynamically
+        $_SESSION['login'] = $user['username']; // Store username dynamically
         $_SESSION['admin_id'] = $user['id']; // Store admin ID
        
         echo "<script>window.location.href='pages/admindashboard.php';</script>";

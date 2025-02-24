@@ -6,7 +6,7 @@ include('../includes/config.php');
 
 
 // Fetch session data
-$admin_username = $_SESSION['alogin'];
+$admin_username = $_SESSION['login'];
 // Initialize variables
 $event_id = $event_name = $event_type = $min_participants = $max_participants = "";
 
@@ -152,6 +152,64 @@ $events = $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
         /* Align Dropdown */
+        .dropdown-menu {
+            min-width: 150px;
+            right: 0;
+            left: auto;
+        }
+    </style>
+    <style>
+        /* Sidebar Styling */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .sidenav a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            background-color: #575757;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Sidebar Button */
+        .sidebar-btn {
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: black;
+            padding: 10px;
+        }
+
+        .sidebar-btn:focus {
+            outline: none;
+        }
+
+        /* Dropdown */
         .dropdown-menu {
             min-width: 150px;
             right: 0;

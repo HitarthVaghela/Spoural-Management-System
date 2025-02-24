@@ -6,7 +6,7 @@ include('../includes/config.php');
 
 
 // Fetch session data
-$admin_username = $_SESSION['alogin'];
+$admin_username = $_SESSION['login'];
 
 
 $total_events = $conn->query("SELECT COUNT(*) AS total FROM events")->fetch_assoc()['total'];
@@ -24,28 +24,57 @@ $total_admins = $conn->query("SELECT COUNT(*) AS total FROM admins")->fetch_asso
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Button Styling */
-        .custom-dropdown-toggle {
-            background-color: #ffffff; /* Light gray */
-            color: black;
-            border: none;
+        /* Sidebar Styling */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .sidenav a {
             padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            background-color: #575757;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
             cursor: pointer;
         }
 
-        /* Ensure hover does not change color */
-        .custom-dropdown-toggle:hover,
-        .custom-dropdown-toggle:focus,
-        .custom-dropdown-toggle:active {
-            background-color: #ddd !important; /* Same as default */
-            color: black !important;
-            outline: none !important;
-            box-shadow: none !important;
+        /* Sidebar Button */
+        .sidebar-btn {
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: black;
+            padding: 10px;
         }
 
-        /* Align Dropdown */
+        .sidebar-btn:focus {
+            outline: none;
+        }
+
+        /* Dropdown */
         .dropdown-menu {
             min-width: 150px;
             right: 0;
@@ -161,21 +190,20 @@ $total_admins = $conn->query("SELECT COUNT(*) AS total FROM admins")->fetch_asso
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
         }
+
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
-<<<<<<< HEAD
-=======
-        document.addEventListener("click", function(event) {
-        var sidebar = document.getElementById("mySidenav");
-        var sidebarButton = document.querySelector("span[onclick='openNav()']");
 
-        // Check if the click is outside the sidebar and not on the open button
-        if (!sidebar.contains(event.target) && !sidebarButton.contains(event.target)) {
-            closeNav();
-        }
-    });
->>>>>>> 8244d27 (Download PDF)
+        // Close sidebar when clicking outside
+        document.addEventListener("click", function(event) {
+            var sidebar = document.getElementById("mySidenav");
+            var sidebarButton = document.querySelector(".sidebar-btn");
+
+            if (!sidebar.contains(event.target) && !sidebarButton.contains(event.target)) {
+                closeNav();
+            }
+        });
     </script>
 </body>
 
